@@ -1,4 +1,11 @@
+import glucose from "../../data/glucose.json";
+import glucoseValues from "../../data/glucoseValues.json";
+let debug = false;
+
 export async function fetchSugar() {
+  if (debug) {
+    return glucose;
+  }
   try {
     const response = await window.fetch("/.netlify/functions/latest");
     const data = await response.json();
@@ -9,6 +16,9 @@ export async function fetchSugar() {
 }
 
 export async function fetchLast24() {
+  if (debug) {
+    return glucoseValues;
+  }
   try {
     const response = await window.fetch("/.netlify/functions/last24");
     const data = await response.json();

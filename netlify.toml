@@ -1,6 +1,7 @@
 [build]
-  command = "npm run build"
-  functions = "./functions"
+  command = "npm run build-all"
+  functions = "./dist/functions"
+  publish = "./dist/public"
 
 [template]
   branch = "main" # This does not work.
