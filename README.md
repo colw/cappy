@@ -1,6 +1,6 @@
 # Cappy
 
-A simplified view of your Nightscout CGM data.
+Check your glucose with Cappy. A simplified view of your Nightscout CGM data.
 
 Very much a work in progress. The basic data is present, but no styling to speak off.
 
