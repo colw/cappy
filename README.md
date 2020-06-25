@@ -4,6 +4,8 @@ Check your glucose with Cappy. A simplified view of your Nightscout CGM data.
 
 Very much a work in progress. The basic data is present, but no styling to speak off.
 
+Currently the build process is very messy. Experimenting with esbuild, eschewing webpack.
+
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/colw/cappy)
 
 You will need the following environment variables defined in Netlify:

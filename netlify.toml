@@ -9,3 +9,13 @@
 [template.environment]
   NS_URI = "https://yoursite.herokuapp.com/api/v3"
   NS_TOKEN = "Set your custom Nightscout subject token here"
+
+# [dev]
+#   command = "npm run build-all" # Command to start your dev server
+#   targetPort = 3000 # The port for your application server, framework or site generator
+#   port = 8888 # The port that the netlify dev will be accessible on
+#   publish = "./dist/public" # The path to your static content folder
+#   jwtRolePath = "app_metadata.authorization.roles" # Object path we should look for role values for JWT based redirects
+#   autoLaunch = true # a Boolean value that determines if Netlify Dev launches the local server address in your browser
+#   framework = "#custom"
+  

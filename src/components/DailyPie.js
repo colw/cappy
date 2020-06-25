@@ -12,14 +12,14 @@ const renderCustomizedLabel = ({
   innerRadius,
   outerRadius,
   percent,
-  index
+  index,
 }) => {
   const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
   const x = cx + radius * Math.cos(-midAngle * RADIAN);
   const y = cy + radius * Math.sin(-midAngle * RADIAN);
 
-  if (!percent) return null
-  
+  if (!percent) return null;
+
   return (
     <text
       x={x}
@@ -28,15 +28,15 @@ const renderCustomizedLabel = ({
       textAnchor={x > cx ? "start" : "end"}
       dominantBaseline="central"
     >
-      {`${(percent * 100).toFixed(0)}%`}
+      {`${(percent * 200).toFixed(0)}%`}
     </text>
   );
 };
 
-const DailyGraph = function({ data = [] }) {
+const DailyGraph = function ({ data = [] }) {
   return (
     <PieChart width={400} height={400}>
-      <Legend verticalAlign="middle" align="left" layout="vertical"/>
+      <Legend verticalAlign="middle" align="left" layout="vertical" />
       <Pie
         data={data}
         dataKey="value"

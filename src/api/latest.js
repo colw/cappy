@@ -1,7 +1,7 @@
 var got = require("got");
 require("dotenv").config();
 
-exports.handler = async (event, context) => {
+export async function handler(event, context) {
   const now = new Date();
   const uri = process.env.NS_URI;
   const path = "/entries";
@@ -19,4 +19,4 @@ exports.handler = async (event, context) => {
     statusCode: 200,
     body: JSON.stringify({ glucose: JSON.parse(response.body)[0] }),
   };
-};
+}
