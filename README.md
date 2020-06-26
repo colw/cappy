@@ -6,6 +6,7 @@ Very much a work in progress. The basic data is present, but no styling to speak
 
 - Currently the build process is very messy. Experimenting with esbuild, eschewing webpack.
 - Wrote a simple fsevents watch bash script to rebuild the client.
+    - Requires `fswatch` (`brew install fswatch`).
 - Netlify-lambda handles the serverless functions locally.
 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/colw/cappy)

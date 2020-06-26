@@ -47,8 +47,6 @@ const handle = express();
   const app = express();
   console.log("get proxy");
   const proxyMiddleware = await import("http-proxy-middleware");
-  console.log("got proxy?", proxyMiddleware);
-  // app.all("/", (req, res) => handle(req, res));
   app.use(express.static("dist/public"));
   app.get("/", function (req, res) {
     res.sendFile(__dirname + "/dist/index.html");
