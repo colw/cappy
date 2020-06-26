@@ -6,6 +6,7 @@
   "version": "0.0.1",
   "description": "A small scaffold to get you started using React with Webpack",
   "scripts": {
+    "start": "parcel src/index.html & npm run serve:lambda",
     "process-client": "npm run copy-index; esbuild ./src/app.js --bundle --outfile=dist/public/bundle.js --minify --loader:.js=jsx '--define:process.env.NODE_ENV=\"development\"'",
     "process-server": "esbuild ./src/api/*.js --bundle --platform=node --format=cjs --outdir=dist/functions",
     "serve:lambda": "npm run process-client; netlify-lambda serve src/api",
