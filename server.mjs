@@ -51,7 +51,7 @@ const handle = express();
   // app.all("/", (req, res) => handle(req, res));
   app.use(express.static("dist/public"));
   app.get("/", function (req, res) {
-    res.sendFile(__dirname + "/app/index.html");
+    res.sendFile(__dirname + "/dist/index.html");
   });
 
   // Set up the proxy.

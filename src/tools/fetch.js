@@ -2,8 +2,6 @@ import glucose from "../../data/glucose.json";
 import glucoseValues from "../../data/glucoseValues.json";
 let debug = false;
 
-console.log(process.env.COLIN);
-
 export async function fetchSugar() {
   if (debug) {
     return glucose;

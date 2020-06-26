@@ -4,7 +4,9 @@ Check your glucose with Cappy. A simplified view of your Nightscout CGM data.
 
 Very much a work in progress. The basic data is present, but no styling to speak off.
 
-Currently the build process is very messy. Experimenting with esbuild, eschewing webpack.
+- Currently the build process is very messy. Experimenting with esbuild, eschewing webpack.
+- Wrote a simple fsevents watch bash script to rebuild the client.
+- Netlify-lambda handles the serverless functions locally.
 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/colw/cappy)
 

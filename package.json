@@ -6,11 +6,12 @@
   "version": "0.0.1",
   "description": "A small scaffold to get you started using React with Webpack",
   "scripts": {
-    "process-client": "esbuild ./src/app.js --bundle --outfile=dist/public/bundle.js --minify --loader:.js=jsx '--define:process.env.NODE_ENV=\"production\"' '--define:process.env.COLIN=\"localhost:9000\"'; npm run copy-index; ",
+    "process-client": "npm run copy-index; esbuild ./src/app.js --bundle --outfile=dist/public/bundle.js --minify --loader:.js=jsx '--define:process.env.NODE_ENV=\"development\"'",
     "process-server": "esbuild ./src/api/*.js --bundle --platform=node --format=cjs --outdir=dist/functions",
     "serve:lambda": "npm run process-client; netlify-lambda serve src/api",
-    "copy-index": "mkdir -p dist/public; cp src/index.html dist/public/",
+    "copy-index": "mkdir -p dist/public; cp ./src/index.html dist/public/",
     "build-all": "npm run process-client; npm run process-server",
+    "dev": "NODE_ENV=development PORT=3000 nodemon --experimental-modules server.mjs -w src/; ./watch.sh \"npm run process-client\"",
     "postinstall": "netlify-lambda install src/api"
   },
   "dependencies": {
