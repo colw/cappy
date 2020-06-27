@@ -1,6 +1,5 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Main from './components/Main';
-import regeneratorRuntime from "regenerator-runtime";
+import React from "react";
+import ReactDOM from "react-dom";
+import Main from "./components/Main";
 
-ReactDOM.render(<Main />, document.getElementById('main'));
+ReactDOM.render(<Main />, document.getElementById("main"));
