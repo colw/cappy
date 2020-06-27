@@ -1,9 +1,6 @@
-import axios from "axios";
-
 let host = "";
 if (process.env.NODE_ENV === "development") {
   host = process.env.DEV_API_HOST;
-  console.log(`dev mode, changed host to ${host}`);
 }
 
 export async function fetchSugar() {
