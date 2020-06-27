@@ -1,36 +1,29 @@
 {
-  "//1": "describes your app and its dependencies",
-  "//2": "https://docs.npmjs.com/files/package.json",
-  "//3": "updating this file will download and update your packages",
   "name": "starter-react",
   "version": "0.0.1",
   "description": "A small scaffold to get you started using React with Webpack",
   "scripts": {
-    "start": "parcel src/index.html & npm run serve:lambda",
-    "process-client": "npm run copy-index; esbuild ./src/app.js --bundle --outfile=dist/public/bundle.js --minify --loader:.js=jsx '--define:process.env.NODE_ENV=\"development\"'",
-    "process-server": "esbuild ./src/api/*.js --bundle --platform=node --format=cjs --outdir=dist/functions",
-    "serve:lambda": "npm run process-client; netlify-lambda serve src/api",
-    "copy-index": "mkdir -p dist/public; cp ./src/index.html dist/public/",
-    "build-all": "npm run process-client; npm run process-server",
-    "dev": "NODE_ENV=development PORT=3000 nodemon --experimental-modules server.mjs -w src/; ./watch.sh \"npm run process-client\"",
-    "postinstall": "netlify-lambda install src/api"
+    "start": "npm run browser-serve & npm run api-serve",
+    "build": "npm run clean && npm run browser-build && npm run api-build",
+    "browser-serve": "parcel serve src/index.html --open",
+    "browser-build": "parcel build src/index.html --dist-dir dist/public",
+    "api-build": "esbuild ./src/api/*.js --bundle --platform=node --format=cjs --outdir=dist/functions",
+    "api-serve": "netlify-lambda serve src/api",
+    "clean": "rm -rf dist .parcel-cache"
   },
   "dependencies": {
     "dotenv": "^8.2.0",
-    "express": "^4.17.1",
     "got": "^11.3.0",
-    "http-proxy-middleware": "^1.0.4",
     "netlify-lambda": "^1.6.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "recharts": "^1.8.5",
-    "request": "^2.88.2"
+    "recharts": "^1.8.5"
   },
   "engines": {
     "node": "12.x"
   },
   "repository": {
-    "url": "https://glitch.com/edit/#!/starter-react"
+    "url": "https://www.github.com/colw/cappy"
   },
   "license": "MIT",
   "keywords": [
@@ -39,6 +32,7 @@
     "express"
   ],
   "devDependencies": {
-    "esbuild": "^0.5.12"
+    "esbuild": "^0.5.12",
+    "parcel": "^2.0.0-beta.1"
   }
 }

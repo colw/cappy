@@ -1,10 +1,7 @@
 [build]
-  command = "npm run build-all"
+  command = "npm run build"
   functions = "./dist/functions"
   publish = "./dist/public"
-
-[template]
-  branch = "main" # This does not work.
 
 [template.environment]
   NS_URI = "https://yoursite.herokuapp.com/api/v3"
