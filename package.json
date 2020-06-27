@@ -1,17 +1,15 @@
 {
-  "//1": "describes your app and its dependencies",
-  "//2": "https://docs.npmjs.com/files/package.json",
-  "//3": "updating this file will download and update your packages",
   "name": "starter-react",
   "version": "0.0.1",
   "description": "A small scaffold to get you started using React with Webpack",
   "scripts": {
-    "process-client": "npm run copy-index; esbuild ./src/app.js --bundle --outfile=dist/public/bundle.js --minify --loader:.js=jsx '--define:process.env.NODE_ENV=\"development\"'",
-    "process-server": "esbuild ./src/api/*.js --bundle --platform=node --format=cjs --outdir=dist/functions",
-    "serve:lambda": "npm run process-client; netlify-lambda serve src/api",
-    "copy-index": "mkdir -p dist/public; cp ./src/index.html dist/public/",
-    "build-all": "npm run process-client; npm run process-server",
-    "dev": "NODE_ENV=development PORT=3000 nodemon --experimental-modules server.mjs -w src/; ./watch.sh \"npm run process-client\"",
+    "start": " npm run api-serve & npm run browser-serve",
+    "build": "npm run clean && npm run browser-build && npm run api-build",
+    "browser-serve": "node server.js",
+    "browser-build": "parcel build --no-cache --no-source-maps src/index.html",
+    "api-build": "esbuild ./src/api/*.js --bundle --platform=node --format=cjs --outdir=dist/functions",
+    "api-serve": "netlify-lambda serve src/api",
+    "clean": "rm -rf dist .parcel-cache",
     "postinstall": "netlify-lambda install src/api"
   },
   "dependencies": {
@@ -20,16 +18,15 @@
     "got": "^11.3.0",
     "http-proxy-middleware": "^1.0.4",
     "netlify-lambda": "^1.6.3",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "recharts": "^1.8.5",
-    "request": "^2.88.2"
+    "react": "^15.0.0 || ^16.0.0",
+    "react-dom": "^15.0.0 || ^16.0.0",
+    "recharts": "^1.8.5"
   },
   "engines": {
     "node": "12.x"
   },
   "repository": {
-    "url": "https://glitch.com/edit/#!/starter-react"
+    "url": "https://www.github.com/colw/cappy"
   },
   "license": "MIT",
   "keywords": [
@@ -38,6 +35,7 @@
     "express"
   ],
   "devDependencies": {
-    "esbuild": "^0.5.12"
+    "esbuild": "^0.5.12",
+    "parcel-bundler": "^1.12.4"
   }
 }
