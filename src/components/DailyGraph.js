@@ -1,4 +1,3 @@
-import React from "react";
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis } from "recharts";
 
 const DailyGraph = function ({ data = [{ sgv: 0 }] }) {

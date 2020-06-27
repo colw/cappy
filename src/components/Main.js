@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useIntervalWithInitial } from "../tools/hooks";
 import { fetchSugar, fetchLast24 } from "../tools/fetch";
 
