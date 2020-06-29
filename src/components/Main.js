@@ -32,7 +32,6 @@ const LATEST_GLUCOSE_VALUES = gql`
 function calcAverage(newData) {
   const newAverage =
     newData.reduce((sum, current) => sum + current.sgv, 0) / newData.length;
-  console.log(newAverage);
   return newAverage;
 }
 
@@ -54,7 +53,6 @@ function calcTimeInRange(newData) {
     { value: good, name: "good" },
     { value: high, name: "high" },
   ];
-  console.log(values, result);
   return result;
 }
 
