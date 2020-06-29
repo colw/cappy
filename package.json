@@ -7,7 +7,7 @@
     "build": "npm run clean && npm run browser-build && npm run api-build",
     "browser-serve": "node server.js",
     "browser-build": "parcel build --no-cache --no-source-maps src/index.html",
-    "api-build": "esbuild ./src/api/*.js --bundle --platform=node --format=cjs --outdir=dist/functions",
+    "api-build": "netlify-lambda build src/api",
     "api-serve": "NODE_ENV=development netlify-lambda serve src/api",
     "clean": "rm -rf dist .parcel-cache",
     "postinstall": "netlify-lambda install src/api"
