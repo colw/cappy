@@ -1,4 +1,6 @@
 const { ApolloServer, gql } = require("apollo-server-lambda");
+const { fetchSugar } = require("./latest.js");
+const { fetchSugars } = require("./last24.js");
 
 const typeDefs = gql`
   type Entry {
@@ -9,16 +11,14 @@ const typeDefs = gql`
 
   type Query {
     entry: Entry
+    entries: [Entry]
   }
 `;
 
 const resolvers = {
   Query: {
-    entry: () => ({
-      sgv: 100,
-      direction: "Flat",
-      dateString: "2020-06-29T07:19:29.476Z",
-    }),
+    entry: fetchSugar,
+    entries: fetchSugars,
   },
 };
 
