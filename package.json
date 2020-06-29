@@ -37,7 +37,6 @@
     "express"
   ],
   "devDependencies": {
-    "esbuild": "^0.5.12",
     "parcel-bundler": "^1.12.4"
   }
 }
