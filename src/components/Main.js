@@ -14,21 +14,19 @@ import { calcAverage, calcTimeInRange } from "../tools/calculations";
 import "./Main.css";
 
 function LanguagewSwitcher() {
-  const [t, intl] = useTranslation();
+  const [, intl] = useTranslation();
 
-  let otherLangaugeChoice, languageCode;
+  let otherLanguageCode = "en";
   if (intl.language === "en") {
-    otherLangaugeChoice = "Deutsch";
-    languageCode = "de";
-  } else {
-    otherLangaugeChoice = "English";
-    languageCode = "en";
+    otherLanguageCode = "de";
   }
+
+  const otherT = intl.getFixedT(otherLanguageCode);
 
   return (
     <div className="language-switcher">
-      <button onClick={() => intl.changeLanguage(languageCode)}>
-        {t("languageChange")}
+      <button onClick={() => intl.changeLanguage(otherLanguageCode)}>
+        {otherT("languageChange")}
       </button>
     </div>
   );
