@@ -21,9 +21,11 @@
     "express": "^4.17.1",
     "got": "^11.3.0",
     "http-proxy-middleware": "^1.0.4",
+    "i18next": "^19.5.1",
     "netlify-lambda": "^1.6.3",
     "react": "^15.0.0 || ^16.0.0",
     "react-dom": "^15.0.0 || ^16.0.0",
+    "react-i18next": "^11.7.0",
     "recharts": "^1.8.5"
   },
   "engines": {
