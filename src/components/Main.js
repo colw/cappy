@@ -6,28 +6,7 @@ import SugarValue from "./SugarValue";
 import DailyGraph from "./DailyGraph";
 import DailyPie from "./DailyPie";
 
-import { gql } from "apollo-boost";
 import { useQuery } from "@apollo/react-hooks";
-
-const LATEST_GLUCOSE_VALUE = gql`
-  {
-    entry {
-      sgv
-      dateString
-      direction
-    }
-  }
-`;
-
-const LATEST_GLUCOSE_VALUES = gql`
-  {
-    entries {
-      sgv
-      dateString
-      direction
-    }
-  }
-`;
 
 function calcAverage(newData) {
   const newAverage =
@@ -55,13 +34,14 @@ function calcTimeInRange(newData) {
   ];
   return result;
 }
+import queries from "../graphql/queries";
 
 const Main = function () {
   const {
     loading: entryLoading,
     error: entryError,
     data: glucoseValue,
-  } = useQuery(LATEST_GLUCOSE_VALUE, {
+  } = useQuery(queries.LATEST_GLUCOSE_VALUE, {
     pollInterval: 2.5 * 60 * 1000,
   });
 
@@ -69,7 +49,7 @@ const Main = function () {
     loading: entriesLoading,
     error: entriesError,
     data: glucoseValues,
-  } = useQuery(LATEST_GLUCOSE_VALUES, {
+  } = useQuery(queries.LATEST_GLUCOSE_VALUES, {
     pollInterval: 2.5 * 60 * 1000,
   });
 
