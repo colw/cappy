@@ -10,7 +10,8 @@
     "api-build": "netlify-lambda build src/api",
     "api-serve": "NODE_ENV=development netlify-lambda serve src/api",
     "clean": "rm -rf dist .parcel-cache",
-    "postinstall": "netlify-lambda install src/api"
+    "postinstall": "netlify-lambda install src/api",
+    "test": "jest -u"
   },
   "dependencies": {
     "@apollo/react-hooks": "^3.1.5",
@@ -41,6 +42,12 @@
     "express"
   ],
   "devDependencies": {
+    "@babel/preset-env": "^7.10.4",
+    "@babel/preset-react": "^7.10.4",
+    "@testing-library/jest-dom": "^5.11.0",
+    "@testing-library/react": "^10.4.3",
+    "babel-core": "^6.26.3",
+    "jest": "^26.1.0",
     "parcel-bundler": "^1.12.4"
   }
 }
