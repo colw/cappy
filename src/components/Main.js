@@ -7,34 +7,8 @@ import DailyGraph from "./DailyGraph";
 import DailyPie from "./DailyPie";
 
 import { useQuery } from "@apollo/react-hooks";
-
-function calcAverage(newData) {
-  const newAverage =
-    newData.reduce((sum, current) => sum + current.sgv, 0) / newData.length;
-  return newAverage;
-}
-
-function calcTimeInRange(newData) {
-  const lowMark = 70;
-  const highMark = 180;
-
-  const values = newData.map((d) => d.sgv);
-  const low = (values.filter((v) => v < lowMark).length / values.length) * 100;
-  const good =
-    (values.filter((v) => v >= lowMark && v <= highMark).length /
-      values.length) *
-    100;
-  const high =
-    (values.filter((v) => v > highMark).length / values.length) * 100;
-
-  const result = [
-    { value: low, name: "low" },
-    { value: good, name: "good" },
-    { value: high, name: "high" },
-  ];
-  return result;
-}
 import queries from "../graphql/queries";
+import { calcAverage, calcTimeInRange } from "../tools/calculations";
 
 const Main = function () {
   const {
