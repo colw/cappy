@@ -35,9 +35,10 @@ function LanguagewSwitcher() {
 }
 
 function HeaderComponent() {
+  const { t } = useTranslation();
   return (
     <div className="header-component">
-      <h1>Glucose</h1>
+      <h1>{t("mainHeading")}</h1>
       <LanguagewSwitcher />
     </div>
   );

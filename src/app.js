@@ -17,12 +17,14 @@ i18next.init({
       translation: {
         average: "Average",
         languageChange: "Switch to English",
+        mainHeading: "Glucose",
       },
     },
     de: {
       translation: {
         average: "Durchschnitt",
         languageChange: "Zu Deutsch wechseln",
+        mainHeading: "Glukose",
       },
     },
   },
