@@ -71,7 +71,9 @@ const Main = function () {
   }
 
   return (
-    <Flex sx={{ flexDirection: "column" }}>
+    <Flex
+      sx={{ flexDirection: "column", marginTop: "10px", marginLeft: "20px" }}
+    >
       <Box>
         <HeaderComponent />
       </Box>
