@@ -11,6 +11,8 @@ import DailyPie from "./DailyPie";
 import queries from "../graphql/queries";
 import { calcAverage, calcTimeInRange } from "../tools/calculations";
 
+import { Flex, Box, Heading, Button } from "rebass";
+
 import "./Main.css";
 
 function LanguagewSwitcher() {
@@ -25,9 +27,12 @@ function LanguagewSwitcher() {
 
   return (
     <div className="language-switcher">
-      <button onClick={() => intl.changeLanguage(otherLanguageCode)}>
+      <Button
+        onClick={() => intl.changeLanguage(otherLanguageCode)}
+        variant="primary"
+      >
         {otherT("languageChange")}
-      </button>
+      </Button>
     </div>
   );
 }
@@ -35,10 +40,10 @@ function LanguagewSwitcher() {
 function HeaderComponent() {
   const { t } = useTranslation();
   return (
-    <div className="header-component">
-      <h1>{t("mainHeading")}</h1>
+    <Flex className="header-component">
+      <Heading fontSize={[5, 6, 7]}>{t("mainHeading")}</Heading>
       <LanguagewSwitcher />
-    </div>
+    </Flex>
   );
 }
 
@@ -66,15 +71,21 @@ const Main = function () {
   }
 
   return (
-    <div>
-      <HeaderComponent />
-      <SugarValue {...glucoseValue.entry} />
-      <DailyGraph data={glucoseValues.entries} />
-      <div>
+    <Flex sx={{ flexDirection: "column" }}>
+      <Box>
+        <HeaderComponent />
+      </Box>
+      <Box>
+        <SugarValue {...glucoseValue.entry} />
+      </Box>
+      <div className="average">
         {t("average")}: {calcAverage(glucoseValues.entries).toFixed(0)}
       </div>
+      <h3>Last 24 Hours</h3>
+      <DailyGraph data={glucoseValues.entries} />
+      <h3>Time in range</h3>
       <DailyPie data={calcTimeInRange(glucoseValues.entries)} />
-    </div>
+    </Flex>
   );
 };
 

@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./SugarValue.css";
+
 const directionGlyph = {
   NONE: "⇼",
   TripleUp: "⤊",
@@ -12,10 +14,10 @@ const directionGlyph = {
   DoubleDown: "⇊",
   TripleDown: "⤋",
   "NOT COMPUTABLE": "-",
-  "RATE OUT OF RANGE": "⇕"
+  "RATE OUT OF RANGE": "⇕",
 };
 
-const SugarValue = function({ sgv = 0, direction = "NONE" }) {
+const SugarValue = function ({ sgv = 0, direction = "NONE" }) {
   return (
     <div className="main-sugar-display">
       <span className="sugar">{sgv}</span>
