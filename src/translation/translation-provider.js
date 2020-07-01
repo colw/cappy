@@ -12,6 +12,8 @@ i18next.init({
         average: "Average",
         languageChange: "English",
         mainHeading: "Glucose",
+        inRange: "In Range",
+        dayGraphTitle: "24 Hours",
       },
     },
     de: {
@@ -19,6 +21,8 @@ i18next.init({
         average: "Durchschnitt",
         languageChange: "Deutsch",
         mainHeading: "Glukose",
+        inRange: "Im Ziel",
+        dayGraphTitle: "24 Stunden",
       },
     },
   },
