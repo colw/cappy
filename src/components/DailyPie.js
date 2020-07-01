@@ -36,7 +36,7 @@ const renderCustomizedLabel = ({
 const DailyGraph = function ({ data = [] }) {
   return (
     <PieChart width={400} height={400}>
-      <Legend verticalAlign="middle" align="left" layout="vertical" />
+      {/* <Legend verticalAlign="middle" align="left" layout="vertical" /> */}
       <Pie
         data={data}
         dataKey="value"
