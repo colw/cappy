@@ -4,12 +4,11 @@
   "description": "A small scaffold to get you started using React with Webpack",
   "scripts": {
     "start": " npm run api-serve & npm run browser-serve",
-    "build": "npm run clean && npm run browser-build && npm run api-build",
-    "browser-serve": "node server.js",
-    "browser-build": "parcel build --no-cache --no-source-maps src/index.html",
+    "build": "npm run browser-build && npm run api-build",
+    "browser-serve": "NODE_ENV=development webpack-dev-server --config webpack.config.js",
+    "browser-build": "NODE_ENV=production webpack --config webpack.config.js",
     "api-build": "netlify-lambda build src/api",
     "api-serve": "NODE_ENV=development netlify-lambda serve src/api",
-    "clean": "rm -rf dist .parcel-cache",
     "postinstall": "netlify-lambda install src/api"
   },
   "dependencies": {
@@ -44,6 +43,15 @@
     "express"
   ],
   "devDependencies": {
-    "parcel-bundler": "^1.12.4"
+    "@babel/core": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/preset-react": "^7.10.4",
+    "babel-loader": "^8.1.0",
+    "css-loader": "^3.6.0",
+    "html-webpack-plugin": "^4.3.0",
+    "style-loader": "^1.2.1",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
   }
 }
