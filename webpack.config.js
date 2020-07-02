@@ -4,11 +4,13 @@ const path = require("path");
 const dotenv = require("dotenv");
 const env = dotenv.config().parsed;
 
-console.log("env", env);
-const envKeys = Object.keys(env).reduce((prev, next) => {
-  prev[`process.env.${next}`] = JSON.stringify(env[next]);
-  return prev;
-}, {});
+let envKeys = {};
+if (env) {
+  envKeys = Object.keys(env).reduce((prev, next) => {
+    prev[`process.env.${next}`] = JSON.stringify(env[next]);
+    return prev;
+  }, {});
+}
 
 module.exports = {
   mode: process.env.NODE_ENV === "development" ? "development" : "production",
