@@ -84,7 +84,7 @@ const Main = function () {
         {t("average")}: {calcAverage(glucoseValues.entries).toFixed(0)}
       </div>
       <h3>{t("dayGraphTitle")}</h3>
-      <DailyGraph data={glucoseValues.entries} />
+      <DailyGraph data={[...glucoseValues.entries].reverse()} />
       <h3>{t("inRange")}</h3>
       <DailyPie data={calcTimeInRange(glucoseValues.entries)} />
     </Flex>
