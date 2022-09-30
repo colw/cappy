@@ -27,7 +27,7 @@
     "react-dom": "^15.0.0 || ^16.0.0",
     "react-i18next": "^11.7.0",
     "rebass": "^4.0.7",
-    "recharts": "^1.8.5",
+    "recharts": "^2.1.14",
     "theme-ui": "^0.3.1"
   },
   "engines": {
